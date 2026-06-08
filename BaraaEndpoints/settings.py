@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-r%@g__7alhm%m62nt#arr5kj39cr*pufu@_h!4(lhdb95)&mkx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["ayero.nue.dom.my.id"]
 
 
 # Application definition
@@ -37,10 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+  	'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+  	'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+  	'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -115,3 +119,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/home/ayero/public_html/static/'
